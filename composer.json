@@ -1,0 +1,26 @@
+{
+    "name": "gos/yolo",
+    "type": "library",
+    "description": "Advanced Retry Implementation",
+    "keywords": ["Retry", "Handler", "YOLO"],
+    "homepage": "https://github.com/GeniusesOfSymfony/Yolo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Johann Saunier",
+            "email": "johann_27@hotmail.fr"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "psr/log": "^1.0"
+    },
+    "autoload": {
+        "psr-4": { "Gos\\Component\\Yolo\\": "src/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
