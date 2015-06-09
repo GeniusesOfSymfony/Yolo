@@ -67,3 +67,19 @@ use Gos\Component\Yolo\Yolo;
 $yolo = new Yolo(function(){});
 $yolo->setLogger($mySwagPsrLogger);
 ```
+
+## Built in Callback
+
+#### Ping Back
+
+```php
+use Gos\Component\Yolo\Yolo;
+use Gos\Component\Yolo\Callback\PingBack;
+
+$pingger = new PingBack('127.0.0.1', 80);
+
+$yoloPush = new Yolo(function(){});
+$yoloPush->tryUntil($pingger);
+```
+
+
