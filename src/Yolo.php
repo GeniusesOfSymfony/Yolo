@@ -67,6 +67,10 @@ class Yolo implements LoggerAwareInterface
 
     protected function extractLogInfos()
     {
+        if($this->process instanceof \Closure){
+            $this->logInfos['callable'] = 'anonymous func.';
+        }
+
         if (is_array($this->process)) {
             if (is_object($this->process[0])) {
                 $reflect = new \ReflectionClass($this->process[0]);
