@@ -23,7 +23,7 @@ With YOLO :
 use Gos\Component\Yolo\Yolo;
 
 $maxRetry = 10; // Default is 5
-$timeout = 10; // Default is 5 (in second)
+$timeout = 10; // Default is 5 (in second), set 0 for not timeout
 $allowedException = ['RuntimeException']; // empty by default, consider exception as a "success"
 $yoloPush = new Yolo(array($pusher, 'push'), array($notification), $maxRetry, $timeout);
 $yoloPush->run();
