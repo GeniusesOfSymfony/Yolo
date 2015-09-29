@@ -46,14 +46,6 @@ class Yolo implements LoggerAwareInterface
         $timeout = self::DEFAULT_TIMEOUT,
         Array $allowedExceptions = array()
     ) {
-        if (null === $maxRetry) {
-            $maxRetry = self::DEFAULT_MAX_RETRY;
-        }
-
-        if (null === $timeout) {
-            $timeout = self::DEFAULT_TIMEOUT;
-        }
-
         $this->process = $process;
         $this->args = $args;
         $this->timeout = $timeout;
@@ -178,7 +170,7 @@ class Yolo implements LoggerAwareInterface
                 $this->logger->warning(sprintf('[%s] Can\'t perform action, waiting next tick', $this->logInfos['callable']));
             }
 
-            if ((time() - $startTime) >= $this->timeout) {
+            if ($this->timeout > 0 && (time() - $startTime) >= $this->timeout) {
                 $retryException = new YoloException('Timed out');
                 $retryException->setRetry($this->maxRetry);
                 $retryException->setTimeout($this->timeout);
